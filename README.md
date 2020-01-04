@@ -1,6 +1,6 @@
-# Screenshot:
-![](./Screenshoot.png)
-# Usage:
+#### Screenshot:
+![](./Screenshot.png)
+#### Usage:
 ```
 pkg update && pkg upgrade
 apt-get install git
@@ -10,7 +10,7 @@ cd Pesbukmbf
 ls
 python2 pesbukmbf.py
 ```
-# Paypal:
+#### Paypal:
 https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CLKRT5QXXFJY4&source=url
-# LiberaPay:
+### LiberaPay:
 <noscript><a href="https://liberapay.com/stepbystepexe/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a></noscript>
