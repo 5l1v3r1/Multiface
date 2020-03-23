@@ -22,7 +22,7 @@ NB          : Manusia gax ada yang sempurna
               sama kaya yang mod tool ini.
               Silahkan laporkan kritik atau saran
               Ke - Email: d_q16x@outlook.co.id
-                 - WhatsApp: +62 8577-5433-901
+                 - WhatsApp: https://tinyurl.com/wel4alo
 
 [ \033[4mGunakan tool ini dengan bijak \033[0m]\n """
 
