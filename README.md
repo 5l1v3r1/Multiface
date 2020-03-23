@@ -1,5 +1,5 @@
 # Multiface:
-*Tool hack facebook yang di recode dari tool MBF. Untuk mengcrack paswword korban secar* ```Bruteforce``` *mengrcak dari teman atau grup facebook, tool ini telah dimodifikasi dan di perbarui beberapa bug yang error. Gunakan dengan bijak jangan disalah gunakan*
+Tool hack facebook yang di recode dari tool **```MBF```**. Untuk mengcrack paswword korban secara **```Bruteforce```** mengrcak dari teman atau grup facebook, tool ini telah dimodifikasi dan di perbarui beberapa bug yang error. Gunakan dengan bijak jangan disalah gunakan.
 #### Screenshot:
 ![](./Skrinsut.png)
 #### Cara Menginstall:
@@ -20,6 +20,6 @@ pip2 install -r requirement.txt
 + WhatsApp https://tinyurl.com/wel4alo
 #### Paypal:
 + Onclick https://bit.ly/3dcEQcN
-### LiberaPay:
+#### LiberaPay:
 <noscript><a href="https://liberapay.com/stepbystepexe/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a></noscript>
 >**Created by Nedi Senja**
